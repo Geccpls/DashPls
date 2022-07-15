@@ -14,6 +14,10 @@
 #NoEnv ; Avoid checking empty variables to see if they are environment variables
 #Warn ; Enable warnings to assist with detecting common errors
 ;#NoTrayIcon ; Disable the tray icon of the script
+; Data vars
+friends := {"Marsh" : "smores"
+			,"Kingly" : "beaw"}
+
 SendMode, Input ; Recommended for new scripts due to its superior speed and reliability
 SetWorkingDir, %A_ScriptDir% ; Change the working directory of the script
 SetBatchLines, -1 ; Run script at maximum speed
@@ -32,16 +36,10 @@ Return
 
 Button:
 	SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
-	WinActivate, Mozilla Firefox   ;as it always has the "Mozilla Firefox" part in it
-	SendInput {!}smores{Enter}
-	sleep 50
-	WinActivate DashPls
-return
-
-ButtonKingly:
-	SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
-	WinActivate, Mozilla Firefox   ;as it always has the "Mozilla Firefox" part in it
-	SendInput {!}beaw{Enter}
+	WinActivate, Mozilla Firefox   ;Will activate the most recently open Firefox window
+	friend := % A_GuiControl
+	command :=  friends[friend]
+	SendInput {!}%command%{Enter}
 	sleep 50
 	WinActivate DashPls
 return
@@ -71,9 +69,7 @@ GUIMain()
 	myH := 50
 	myX := 10
 	myY := 10
-	; Data vars
-	friends := {"Marsh" : "!smores"
-				,"Kingly" : "!beaw"}
+	
 	;Gui vars
 	GUIWidth := 600, GUIHeight := 400
 	
@@ -88,18 +84,16 @@ GUIMain()
 	;Generate buttons
 	For eNum, element in friends := ["Marsh", "Kingly"]
 		Gui, Add, Button, % " x" myX " y" ((myY + myH) * enum - myH) " w" myW " h" myH " gButton", %element%
-	;labels
-	
 	
 	;cleanup
 	Gui, Show, % " w" GUIWidth " h" GUIHeight, DashPls
 	Return
 }
-
-^a::
-WinGetActiveTitle, title
-MsgBox, title=%title%
-return
+;Hotkey for detecting windows names. Ctrl-a.
+;^a::
+;WinGetActiveTitle, title
+;MsgBox, title=%title%
+;return
 
 
 ; =======================================================================================
