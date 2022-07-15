@@ -8,16 +8,6 @@
 ; Credit ........: TheDewd on the Autohotkey forums for boilerplate / template.
 ; =======================================================================================
 
-; Changelog =============================================================================
-; Legend: (+) NEW, (*) CHANGED, (!) FIXED
-; ---------------------------------------------------------------------------------------
-; YYYY-MM-DD  FirstName LastName  <email@address.com>
-; + Change Description
-; ---------------------------------------------------------------------------------------
-; YYYY-MM-DD  FirstName LastName  <email@address.com>
-; + Change Description
-; =======================================================================================
-
 ; Global ================================================================================
 #SingleInstance, Force ; Allow only one running instance of script
 #Persistent ; Keep script permanently running until terminated
