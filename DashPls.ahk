@@ -30,6 +30,23 @@ MenuHandler:
 	MsgBox, You selected %A_ThisMenuItem% from menu %A_ThisMenu%.
 Return
 
+Button:
+	SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
+	WinActivate, Mozilla Firefox   ;as it always has the "Mozilla Firefox" part in it
+	SendInput {!}smores{Enter}
+	sleep 50
+	WinActivate DashPls
+return
+
+ButtonKingly:
+	SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
+	WinActivate, Mozilla Firefox   ;as it always has the "Mozilla Firefox" part in it
+	SendInput {!}beaw{Enter}
+	sleep 50
+	WinActivate DashPls
+return
+
+
 GuiEscape:
 GuiClose:
 ExitSub:
@@ -68,9 +85,13 @@ GUIMain()
 	Gui, +LastFound -Resize
 	;Gui, Color, FFFFFF
 	Gui, Margin, 10, 10
+	;Generate buttons
 	For eNum, element in friends := ["Marsh", "Kingly"]
-		Gui, Add, Button, % " x" myX " y" ((myY + myH) * enum - myH) " w" myW " h" myH, %element%
-
+		Gui, Add, Button, % " x" myX " y" ((myY + myH) * enum - myH) " w" myW " h" myH " gButton", %element%
+	;labels
+	
+	
+	;cleanup
 	Gui, Show, % " w" GUIWidth " h" GUIHeight, DashPls
 	Return
 }
@@ -80,22 +101,5 @@ WinGetActiveTitle, title
 MsgBox, title=%title%
 return
 
-ButtonKingly:
-SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
-WinActivate, Mozilla Firefox   ;as it always has the "- Mozilla Firefox" part in it
-SendInput {!}beaw{Enter}
-sleep 50
-WinActivate DashPls
-return
-;WinGetActiveTitle, title
-;MsgBox, title=%title%
-;return
 
-ButtonMarsh:
-SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
-WinActivate, Mozilla Firefox   ;as it always has the "- Mozilla Firefox" part in it
-SendInput {!}smores{Enter}
-sleep 60
-WinActivate DashPls
-return
 ; =======================================================================================
