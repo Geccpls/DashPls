@@ -55,8 +55,8 @@ GUIMain()
 	myX := 10
 	myY := 10
 	; Data vars
-	friends := {marsh : ["Marsh", "!smores"]
-				,kingly : ["Kingly", "!beaw"]}
+	friends := {"Marsh" : "!smores"
+				,"Kingly" : "!beaw"}
 	;Gui vars
 	GUIWidth := 600, GUIHeight := 400
 	
@@ -68,9 +68,8 @@ GUIMain()
 	Gui, +LastFound -Resize
 	;Gui, Color, FFFFFF
 	Gui, Margin, 10, 10
-
-	Gui, Add, Button, % " x" myX " y" myY " w" myW " h" myH, Kingly
-	Gui, Add, Button, % " x" myX " y" ((myY + myH) * 2 - myH) " w" myW " h" myH, Marsh
+	For eNum, element in friends := ["Marsh", "Kingly"]
+		Gui, Add, Button, % " x" myX " y" ((myY + myH) * enum - myH) " w" myW " h" myH, %element%
 
 	Gui, Show, % " w" GUIWidth " h" GUIHeight, DashPls
 	Return
