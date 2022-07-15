@@ -15,8 +15,7 @@
 #Warn ; Enable warnings to assist with detecting common errors
 ;#NoTrayIcon ; Disable the tray icon of the script
 ; Data vars
-friends := {"Marsh" : "smores"
-			,"Kingly" : "beaw"}
+Global friends
 
 SendMode, Input ; Recommended for new scripts due to its superior speed and reliability
 SetWorkingDir, %A_ScriptDir% ; Change the working directory of the script
@@ -63,13 +62,14 @@ GUIMain()
 	
 	Global
 	; Variables and Constants ===================
-
+	friends := [["Marsh", "smores"]
+			,["Kingly", "beaw"]
+			,["Ebban", "grip"]]
 	; Button vars
 	myW := 100
 	myH := 50
 	myX := 10
 	myY := 10
-	
 	;Gui vars
 	GUIWidth := 600, GUIHeight := 400
 	
@@ -82,8 +82,8 @@ GUIMain()
 	;Gui, Color, FFFFFF
 	Gui, Margin, 10, 10
 	;Generate buttons
-	For eNum, element in friends := ["Marsh", "Kingly"]
-		Gui, Add, Button, % " x" myX " y" ((myY + myH) * enum - myH) " w" myW " h" myH " gButton", %element%
+	For i, element in friends 
+		Gui, Add, Button, % " x" myX " y" ((myY + myH) * i - myH) " w" myW " h" myH " gButton", % element[1]
 	
 	;cleanup
 	Gui, Show, % " w" GUIWidth " h" GUIHeight, DashPls
