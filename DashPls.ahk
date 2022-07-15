@@ -64,7 +64,8 @@ GUIMain()
 	; Variables and Constants ===================
 	friends := {"Marsh": [1,"smores"]
 			,"Kingly": [2,"beaw"]
-			,"Ebban": [3,"grip"]}
+			,"Sylvia": [3,"sylvia"]
+			,"Ebban": [4,"grip"]}
 	; Button vars
 	myW := 100
 	myH := 50
