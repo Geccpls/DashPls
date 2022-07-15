@@ -65,7 +65,9 @@ GUIMain()
 	friends := {"Marsh": [1,"smores"]
 			,"Kingly": [2,"beaw"]
 			,"Sylvia": [3,"sylvia"]
-			,"Ebban": [4,"grip"]}
+			,"Cider": [4,"dook"]
+			,"Gecc": [5,"grip"]
+			,"Ebban": [6,"grip"]}
 	; Button vars
 	myW := 100
 	myH := 50
