@@ -4,7 +4,7 @@
 ; AHK Version ...: idklol
 ; Platform ......: built on windows 10
 ; Language ......: English (en-US)
-; Author ........: Gecc bipesnowman@live.ca
+; Author ........: Gecc
 ; Credit ........: TheDewd on the Autohotkey forums for boilerplate / template.
 ; =======================================================================================
 
