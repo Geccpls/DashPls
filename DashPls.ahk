@@ -1,7 +1,7 @@
 ; =======================================================================================
 ; Name ..........: TwitchDashboard
 ; Description ...: Script Description
-; AHK Version ...: idklol
+; AHK Version ...: 1.1.32.00
 ; Platform ......: built on windows 10
 ; Language ......: English (en-US)
 ; Author ........: Gecc
@@ -24,8 +24,8 @@ OnExit, ExitSub ; Run a subroutine or function automatically when the script exi
 
 Return ; End automatic execution
 ; =======================================================================================
-; Labels ================================================================================
 
+; Labels ================================================================================
 MenuHandler:
 	MsgBox, You selected %A_ThisMenuItem% from menu %A_ThisMenu%.
 Return
@@ -37,13 +37,27 @@ ExitSub:
 Return
 ; =======================================================================================
 
+
+
+
+
 ; Functions =============================================================================
 GUIMain()
 {
 	Static GUICreate := GUIMain()
 	
 	Global
-	
+	; Variables and Constants ===================
+
+	; Button vars
+	myW := 100
+	myH := 50
+	myX := 10
+	myY := 10
+	; Data vars
+	friends := {marsh : ["Marsh", "!smores"]
+				,kingly : ["Kingly", "!beaw"]}
+	;Gui vars
 	GUIWidth := 600, GUIHeight := 400
 	
 	Menu, Tray, Icon, Shell32.dll, 174 ; Change the tray icon
@@ -55,7 +69,8 @@ GUIMain()
 	;Gui, Color, FFFFFF
 	Gui, Margin, 10, 10
 
-	Gui, Add, Button, % " x" 10 " y" 10 " w" 100 " h" 50, Button1
+	Gui, Add, Button, % " x" myX " y" myY " w" myW " h" myH, Button1
+	Gui, Add, Button, % " x" myX " y" ((myY + myH) * 2 - myH) " w" myW " h" myH, Button2
 
 	Gui, Show, % " w" GUIWidth " h" GUIHeight, Application
 	Return
