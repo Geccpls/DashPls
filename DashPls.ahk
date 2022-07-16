@@ -66,7 +66,7 @@ GUIMain()
 			,"Kingly": [2,"beaw"]
 			,"Sylvia": [3,"sylvia"]
 			,"Cider": [4,"dook"]
-			,"Gecc": [5,"grip"]
+			,"Gecc": [5,"gummy"]
 			,"Tusano": [6,"pps"]
 			,"Ebban": [7,"grip"]
 			,"Chill": [25, "chill"]
@@ -87,7 +87,7 @@ GUIMain()
 	Menu, Tray, Tip, Script Name ; Change the tooltip of the tray icon
 	Menu, Tray, NoStandard ; Remove all standard tray menu items
 	Menu, Tray, Add, Exit, ExitSub
-
+	Gui,+AlwaysOnTop
 	Gui, +LastFound -Resize
 	;Gui, Color, FFFFFF
 	Gui, Margin, 10, 10
