@@ -35,7 +35,7 @@ Return
 
 Button:
 	SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
-	WinActivate, Mozilla Firefox   ;Will activate the most recently open Firefox window
+	WinActivate, "Mod View"   ;Will activate the most recently open Firefox window
 	friend := % A_GuiControl
 	command :=  friends[friend][2]
 	SendInput {!}%command%{Enter}
@@ -88,19 +88,15 @@ GUIMain()
 	Gui, Margin, 10, 10
 	;Generate buttons
 	For key, element in friends {
-		this := 1+1-2
-		;Gui, Add, Button, % " x" myX " y" ((myY + myH) * element[1] - myH) " w" myW " h" myH " gButton", % key
 		i := element[1]
 		n := bpc
 		a := 1 + floor((i-1)/n)
-		b := 1 - n * floor((i-1)/n)
+		b := i - n * floor((i-1)/n)
 		x := a - 1
 		y := b - 1
 		offX := a * myX + x * myW
 		offY := b * myY + y * myH
 		Gui, Add, Button, % " x" offX " y" offY " w" myW " h" myH " gButton", % key
-		;Gui, Add, Button, % " x" myX " y" ((myY + myH) * element[1] - myH) " w" myW " h" myH " gButton", % key
-		;Gui, Add, Button, % " x" (1+floor((1-element[1])/6)) * myX + ((1+floor((1-element[1])/6))-1) * myH " y" (element[1] - (6 * floor((element[1]-1)/6)) * myY) + (6 * floor((element[1]-1)/6) -1) * myW " w" myW " h" myH " gButton", % key
 	}
 	;cleanup
 	Gui, Show, % " w" GUIWidth " h" GUIHeight, DashPls
