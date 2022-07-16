@@ -35,7 +35,7 @@ Return
 
 Button:
 	SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
-	WinActivate, "Mod View"   ;Will activate the most recently open Firefox window
+	WinActivate, Mod View   ;Will activate the most recently open Firefox window
 	friend := % A_GuiControl
 	command :=  friends[friend][2]
 	SendInput {!}%command%{Enter}
@@ -68,7 +68,12 @@ GUIMain()
 			,"Cider": [4,"dook"]
 			,"Gecc": [5,"grip"]
 			,"Tusano": [6,"pps"]
-			,"Ebban": [7,"grip"]}
+			,"Ebban": [7,"grip"]
+			,"Chill": [25, "chill"]
+			,"Cupcakke": [26, "cupcakke"]
+			,"Genderfluid": [27, "genderfluid"]
+			,"Cringe": [28, "cringe"]
+			,"Chip": [29, "chip"]}
 	; Button vars
 	myW := 100
 	myH := 50
@@ -76,7 +81,7 @@ GUIMain()
 	myY := 10
 	bpc := 6 ;buttons per column
 	;Gui vars
-	GUIWidth := 600, GUIHeight := 400
+	GUIWidth := 560, GUIHeight := 370
 	
 	Menu, Tray, Icon, Shell32.dll, 174 ; Change the tray icon
 	Menu, Tray, Tip, Script Name ; Change the tooltip of the tray icon
