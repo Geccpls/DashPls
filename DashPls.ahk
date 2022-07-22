@@ -44,7 +44,7 @@ Button:
 	send ^v
 	send {enter}
 	sleep 50
-	
+	clipboard = oldClipboard
 	WinActivate DashPls
 return
 
