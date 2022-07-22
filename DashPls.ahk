@@ -34,12 +34,17 @@ MenuHandler:
 Return
 
 Button:
+	friend := % A_GuiControl
+	oldClipboard = clipboard
+	clipboard := friends[friend][2]
+
 	SetTitleMatchMode, 2   ;window title can contain WinTitle anywhere inside it to be a match
 	WinActivate, Mod View   ;Will activate the most recently open Firefox window
-	friend := % A_GuiControl
-	command :=  friends[friend][2]
-	SendInput {!}%command%{Enter}
+	
+	send ^v
+	send {enter}
 	sleep 50
+	
 	WinActivate DashPls
 return
 
@@ -62,18 +67,22 @@ GUIMain()
 	
 	Global
 	; Variables and Constants ===================
-	friends := {"Marsh": [1,"smores"]
-			,"Kingly": [2,"beaw"]
-			,"Sylvia": [3,"sylvia"]
-			,"Cider": [4,"dook"]
-			,"Gecc": [5,"gummy"]
-			,"Tusano": [6,"pps"]
-			,"Ebban": [7,"grip"]
-			,"Chill": [25, "chill"]
-			,"Cupcakke": [26, "cupcakke"]
-			,"Genderfluid": [27, "genderfluid"]
-			,"Cringe": [28, "cringe"]
-			,"Chip": [29, "chip"]}
+	friends := {"Marsh": [1,"!smores"] ;shoutouts
+			,"Kingly": [2,"!beaw"]
+			,"Sylvia": [3,"!sylvia"]
+			,"Cider": [4,"!dook"]
+			,"Gecc": [5,"!gummy"]
+			,"Tusano": [6,"!pps"]
+			,"Ebban": [7,"!grip"]
+			,"Chill": [25, "!chill"]
+			,"Cupcakke": [26, "!cupcakke"] ;sound commands
+			,"Genderfluid": [27, "!genderfluid"]
+			,"Cringe": [28, "!cringe"]
+			,"Chip": [29, "!chip"]
+			,"Commissions": [19, "!comms"] ;channel commands
+			,"Fortnite": [20, "!fortnite"]
+			,"Raid": [21, "!raid"]
+			,"18+": [22, "!18+"]}
 	; Button vars
 	myW := 100
 	myH := 50
